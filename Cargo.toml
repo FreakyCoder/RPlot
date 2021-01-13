@@ -1,0 +1,16 @@
+[package]
+name = "rplot"
+version = "0.1.0"
+authors = ["Kaloyan Dimitrov <kaloyankd.06@gmail.com>"]
+description = "rplot is a Rust library for data plotting. Existing solutions are either very restricted or have a tremendously complicated API. rplot aims to be easy to understand and learn yet be diverse."
+license-file = "LICENSE"
+homepage="https://github.com/FreakyCoder/rplot"
+documentation="https://github.com/FreakyCoder/rplot"
+repository="https://github.com/FreakyCoder/rplot"
+readme="README.md"
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+
