@@ -4,11 +4,12 @@
 /// ```
 /// use rplot::charts::ScatterChart;
 ///
-/// let mut test_chart = ScatterChart::new((1280, 720));
+/// let mut test_chart = ScatterChart::new("test_chart.svg", (1280, 720));
 /// test_chart.title = "Test Chart".to_string();
 /// test_chart.x_label = "X Values".to_string();
 /// test_chart.y_label = "Y Values".to_string();
 /// test_chart.padding = (10, 5, 10, 5);
+/// assert_eq!(test_chart.file_path, "test_chart.svg");
 /// assert_eq!(test_chart.title, "Test Chart");
 /// assert_eq!(test_chart.dimensions, (1280, 720));
 /// assert_eq!(test_chart.x_label, "X Values");

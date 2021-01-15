@@ -1,1 +1,1 @@
-pub mod chart;
+pub mod scatter_chart;
