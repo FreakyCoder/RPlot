@@ -14,3 +14,10 @@ edition = "2018"
 
 [dependencies]
 
+[lib]
+name = "rplot"
+path = "src/lib.rs"
+
+[[bin]]
+name = "scatter-test"
+path = "src/bin/scatter-test.rs"
