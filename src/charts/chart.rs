@@ -1,10 +1,10 @@
-/// Container for all properties related to the scatter chart.\
+/// Container for all properties related to the chart.\
 /// It stores the *chart title*, *resolution*, *x* and *y labels*, and the *padding* of the chart.
 /// # Example
 /// ```
-/// use rplot::charts::ScatterChart;
+/// use rplot::charts::Chart;
 ///
-/// let mut test_chart = ScatterChart::new("test_chart.svg", (1280, 720));
+/// let mut test_chart = Chart::new("test_chart.svg", (1280, 720));
 /// test_chart.title = "Test Chart".to_string();
 /// test_chart.x_label = "X Values".to_string();
 /// test_chart.y_label = "Y Values".to_string();
@@ -15,7 +15,7 @@
 /// assert_eq!(test_chart.y_label, "Y Values");
 /// assert_eq!(test_chart.padding, (5, 10, 5, 10));
 /// ```
-pub struct ScatterChart {
+pub struct Chart {
 	/// The file path where the chart image should be saved.
 	pub file_path: String,
 	/// The *title* of the chart.
@@ -31,12 +31,12 @@ pub struct ScatterChart {
 	pub padding: (u32, u32, u32, u32),
 }
 
-impl ScatterChart {
-	/// Create a new *ScatterChart* with default values and given dimensions as (u32, u32).\
+impl Chart {
+	/// Create a new *Chart* with default values and given dimensions as (u32, u32).\
 	/// # Example
 	/// ```
-	/// use rplot::charts::ScatterChart;
-	/// let mut test_chart = ScatterChart::new("test_chart.svg", (1280, 720));
+	/// use rplot::charts::Chart;
+	/// let mut test_chart = Chart::new("test_chart.svg", (1280, 720));
 	///
 	/// assert_eq!(test_chart.file_path, "test_chart.svg");
 	/// assert_eq!(test_chart.title, "");
@@ -59,17 +59,19 @@ impl ScatterChart {
 
 // implement the exporting functions
 use crate::charts::Export;
+use std::fs::create_dir_all as create_dir;
 use std::fs::File;
 use std::io::Write;
 use std::path::Path;
 
-impl Export for ScatterChart {
+impl Export for Chart {
 	fn export_svg(&self) -> std::io::Result<()> {
 		let path = Path::new(&(*self).file_path);
+		create_dir(path.ancestors().nth(1).unwrap().to_str().unwrap())?;
 		let mut file = File::create(path)?;
 		file.write_all(
 			format!(
-				"<svg width=\"{}\" height=\"{}\" style=\"background-color:white\">\n",
+				"<svg width=\"{}\" height=\"{}\" style=\"background-color:white\" xmlns=\"http://www.w3.org/2000/svg\">\n",
 				(*self).dimensions.0,
 				(*self).dimensions.1
 			)

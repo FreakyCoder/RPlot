@@ -2,9 +2,9 @@
 /// *charts* module consists of structs and their implementations for the different chart types.
 /// # Example
 /// ```
-/// use rplot::charts::ScatterChart;
+/// use rplot::charts::Chart;
 ///
-/// let mut test_chart = ScatterChart::new("test_chart.svg", (1280, 720));
+/// let mut test_chart = Chart::new("test_chart.svg", (1280, 720));
 /// test_chart.title = "Test Chart".to_string();
 /// test_chart.x_label = "X Values".to_string();
 /// test_chart.y_label = "Y Values".to_string();

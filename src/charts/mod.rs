@@ -1,9 +1,9 @@
-/// **scatter** module consists of the **ScatterChart** struct and its implementation.
+/// **charts** module consists of the **Chart** struct and its implementation.
 /// # Example
 /// ```
-/// use rplot::charts::ScatterChart;
+/// use rplot::charts::Chart;
 ///
-/// let mut test_chart = ScatterChart::new("test_chart.svg", (1280, 720));
+/// let mut test_chart = Chart::new("test_chart.svg", (1280, 720));
 /// assert_eq!(test_chart.file_path, "test_chart.svg");
 /// assert_eq!(test_chart.title, "");
 /// assert_eq!(test_chart.dimensions, (1280, 720));
@@ -23,8 +23,8 @@
 /// assert_eq!(test_chart.y_label, "Y Values 2");
 /// assert_eq!(test_chart.padding, (10, 5, 10, 5));
 /// ```
-pub mod scatter;
-pub use scatter::ScatterChart;
+pub mod chart;
+pub use chart::Chart;
 
 /// **svg** module consists of the Export trait for exporting a chart as *SVG*.
 pub mod export;

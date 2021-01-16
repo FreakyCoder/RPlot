@@ -1,7 +1,7 @@
 use crate::charts::*;
 #[test]
-fn create_scatter_chart() {
-	let test_chart = ScatterChart::new("test_chart.svg", (1280, 720));
+fn create_chart() {
+	let test_chart = Chart::new("test_chart.svg", (1280, 720));
 	assert_eq!(test_chart.file_path, "test_chart.svg");
 	assert_eq!(test_chart.title, "");
 	assert_eq!(test_chart.dimensions, (1280, 720));
@@ -11,8 +11,8 @@ fn create_scatter_chart() {
 }
 
 #[test]
-fn modify_scatter_chart() {
-	let mut test_chart = ScatterChart::new("test_chart.svg", (1280, 720));
+fn modify_chart() {
+	let mut test_chart = Chart::new("test_chart.svg", (1280, 720));
 	test_chart.file_path = "test_chart2.svg".to_string();
 	test_chart.title = "Test Chart".to_string();
 	test_chart.dimensions = (1920, 1080);
