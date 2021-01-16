@@ -56,3 +56,34 @@ impl ScatterChart {
 		}
 	}
 }
+
+// implement the exporting functions
+use crate::charts::Export;
+use std::fs::File;
+use std::io::Write;
+use std::path::Path;
+
+impl Export for ScatterChart {
+	fn export_svg(&self) -> std::io::Result<()> {
+		let path = Path::new(&(*self).file_path);
+		let mut file = File::create(path)?;
+		file.write_all(
+			format!(
+				"<svg width=\"{}\" height=\"{}\" style=\"background-color:white\">\n",
+				(*self).dimensions.0,
+				(*self).dimensions.1
+			)
+			.as_bytes(),
+		)?;
+		file.write_all(
+			format!(
+				"	<text x=\"50%\" y=\"{}\" text-anchor=\"middle\" dominant-baseline=\"hanging\" fill=\"black\" font-family=\"Arial\" font-size=\"48\" font-weight=\"2\">{}</text>\n",
+				(*self).padding.0,
+				(*self).title
+			)
+			.as_bytes(),
+		)?;
+		file.write_all("</svg>".as_bytes())?;
+		Ok(())
+	}
+}

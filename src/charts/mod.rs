@@ -1,4 +1,4 @@
-/// *scatter* module consists of the **ScatterChart** struct and its implementation.
+/// **scatter** module consists of the **ScatterChart** struct and its implementation.
 /// # Example
 /// ```
 /// use rplot::charts::ScatterChart;
@@ -25,3 +25,7 @@
 /// ```
 pub mod scatter;
 pub use scatter::ScatterChart;
+
+/// **svg** module consists of the Export trait for exporting a chart as *SVG*.
+pub mod export;
+pub use export::Export;
